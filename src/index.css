@@ -1,0 +1,78 @@
+@import "tailwindcss";
+
+@media print {
+  @page {
+    size: letter portrait;
+    margin: 16mm 14mm 16mm 14mm;
+  }
+
+  html,
+  body,
+  #root {
+    background: #ffffff !important;
+    color: #0f172a !important;
+    height: auto !important;
+    min-height: 0 !important;
+    overflow: visible !important;
+    font-size: 11pt !important;
+  }
+
+  /* Universal print hidden elements */
+  header,
+  nav,
+  aside,
+  #app-sidebar,
+  .print\:hidden {
+    display: none !important;
+    visibility: hidden !important;
+    height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  main {
+    padding: 0 !important;
+    margin: 0 !important;
+    max-width: 100% !important;
+    width: 100% !important;
+    overflow: visible !important;
+    height: auto !important;
+  }
+
+  /* Retain colors & background fills during PDF generation */
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* Clean table and heading breaks */
+  h1, h2, h3, h4, h5 {
+    break-after: avoid !important;
+    page-break-after: avoid !important;
+  }
+
+  table {
+    width: 100% !important;
+    border-collapse: collapse !important;
+    break-inside: auto;
+  }
+
+  tr {
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+
+  th, td {
+    border: 1px solid #cbd5e1 !important;
+    padding: 6px 10px !important;
+  }
+
+  thead {
+    display: table-header-group;
+  }
+
+  .print-avoid-break {
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+}

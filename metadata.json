@@ -1,0 +1,6 @@
+{
+  "name": "EcoRoot AI",
+  "description": "AI-Powered Sustainable Decision-Making Platform for industrial root-cause analysis, LCA evaluation, intervention simulations, and carbon-credit readiness.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
