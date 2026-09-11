@@ -129,31 +129,31 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-slate-100/70 text-slate-800 flex flex-col font-sans antialiased selection:bg-emerald-100 selection:text-emerald-900 print:bg-white print:min-h-0 print:block">
-      {/* Top Application Header */}
-      <TopNav
+      {/* Navigation Sidebar (Fixed left dock on lg screens) */}
+      <Sidebar
         currentPage={currentPage}
-        onOpenMobileMenu={() => setIsMobileMenuOpen(true)}
+        onSelectPage={(page) => setCurrentPage(page)}
+        isOpenMobile={isMobileMenuOpen}
+        onCloseMobile={() => setIsMobileMenuOpen(false)}
         onOpenGlossary={() => setIsGlossaryOpen(true)}
-        selectedOrg={organization}
-        onChangeOrg={setOrganization}
-        totalEmissions={totalEmissions}
-        simulatedReductionPercent={simulatedReductionPercent}
-        creditReadinessScore={SAMPLE_CARBON_CREDIT_READINESS.overallScore}
       />
 
-      {/* Main Layout Container */}
-      <div className="flex-1 flex overflow-hidden print:block print:overflow-visible">
-        {/* Navigation Sidebar */}
-        <Sidebar
+      {/* Main Content Area: Properly offset to the right of sidebar on desktop */}
+      <div className="flex-1 flex flex-col min-w-0 lg:pl-72 print:pl-0">
+        {/* Top Application Header: Sticky at top of content area */}
+        <TopNav
           currentPage={currentPage}
-          onSelectPage={(page) => setCurrentPage(page)}
-          isOpenMobile={isMobileMenuOpen}
-          onCloseMobile={() => setIsMobileMenuOpen(false)}
+          onOpenMobileMenu={() => setIsMobileMenuOpen(true)}
           onOpenGlossary={() => setIsGlossaryOpen(true)}
+          selectedOrg={organization}
+          onChangeOrg={setOrganization}
+          totalEmissions={totalEmissions}
+          simulatedReductionPercent={simulatedReductionPercent}
+          creditReadinessScore={SAMPLE_CARBON_CREDIT_READINESS.overallScore}
         />
 
-        {/* Dynamic Page Content Viewport */}
-        <main className="flex-1 overflow-y-auto px-4 sm:px-8 py-6 max-w-7xl mx-auto w-full print:p-0 print:m-0 print:max-w-none print:w-full print:overflow-visible">
+        {/* Dynamic Page Content Viewport: Clean scrolling with generous padding */}
+        <main className="flex-1 w-full px-4 sm:px-6 lg:px-8 py-6 pb-24 max-w-7xl mx-auto print:p-0 print:m-0 print:max-w-none print:w-full">
           {currentPage === 'landing' && (
             <LandingOverview
               onNavigate={(page) => setCurrentPage(page)}

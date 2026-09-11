@@ -147,7 +147,7 @@ export function TopNav({
             id="top-glossary-btn"
             onClick={onOpenGlossary}
             title="Standards & Glossary"
-            className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl text-xs font-semibold text-slate-700 bg-white border border-slate-200 hover:bg-slate-50 hover:text-emerald-700 transition-colors shadow-xs"
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold text-slate-700 bg-white border border-slate-200 hover:bg-slate-50 hover:text-emerald-700 transition-colors shadow-xs cursor-pointer"
           >
             <HelpCircle className="w-4 h-4 text-emerald-600" />
             <span className="hidden sm:inline">Glossary</span>
