@@ -154,3 +154,43 @@ export interface SustainabilityReport {
   carbonCreditRoadmap: string;
   rawMarkdown?: string;
 }
+
+export interface MarketTrendItem {
+  id: string;
+  title: string;
+  category: 'Carbon Credits' | 'Sustainable Manufacturing' | 'Policy & CBAM' | 'Industrial Technology' | 'Renewable Energy';
+  sourceName: string;
+  sourceUrl?: string;
+  date: string;
+  summary: string;
+  impactOnManufacturing: string;
+  keyMetric: string;
+  tags: string[];
+}
+
+export interface GroundingSource {
+  title: string;
+  url: string;
+}
+
+export interface MarketTrendsResponse {
+  isLiveGrounded: boolean;
+  isFallback?: boolean;
+  pulse: string;
+  lastUpdated: string;
+  marketMetrics: {
+    euEtsPrice: string;
+    euEtsChange: string;
+    vcmTechRemovalPrice: string;
+    cbamStatus: string;
+    cleanTechInvestment: string;
+  };
+  items: MarketTrendItem[];
+  regulatorySpotlight: {
+    title: string;
+    timeline: string;
+    complianceAction: string;
+  };
+  searchQueries?: string[];
+  groundingSources?: GroundingSource[];
+}

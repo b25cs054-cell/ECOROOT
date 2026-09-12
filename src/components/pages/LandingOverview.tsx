@@ -16,8 +16,10 @@ import {
   BarChart3,
   Factory,
   Sparkles,
+  TrendingUp,
 } from 'lucide-react';
 import { PageId } from '../layout/Sidebar';
+import { MarketTrendsSection } from './MarketTrendsSection';
 import {
   ResponsiveContainer,
   PieChart,
@@ -157,6 +159,17 @@ export function LandingOverview({
             >
               <Database className="w-3.5 h-3.5 text-emerald-400" />
               <span>Supabase Architecture</span>
+            </button>
+
+            <button
+              id="hero-scroll-market-trends"
+              onClick={() => {
+                document.getElementById('landing-market-trends-section')?.scrollIntoView({ behavior: 'smooth' });
+              }}
+              className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-emerald-950/70 hover:bg-emerald-900/90 text-emerald-200 border border-emerald-700/50 text-xs font-semibold transition-all cursor-pointer"
+            >
+              <TrendingUp className="w-3.5 h-3.5 text-emerald-400" />
+              <span>Market Trends & Grounded News</span>
             </button>
           </div>
         </div>
@@ -329,6 +342,9 @@ export function LandingOverview({
           </button>
         </div>
       </div>
+
+      {/* Market Trends Section with Google Search Grounding */}
+      <MarketTrendsSection onNavigate={onNavigate} />
 
       {/* Feature Modules Launchpad */}
       <div className="space-y-4">
